@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     "AFF invests in African founders with businesses that need more funds.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({
   children,
 }: {

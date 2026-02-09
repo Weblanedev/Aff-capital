@@ -5,15 +5,15 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function AboutUs() {
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden">
+    <section className="relative py-12 sm:py-20 md:py-28 overflow-hidden">
       {/* Subtle background */}
       <div
         className="absolute inset-0 bg-gradient-to-b from-white via-amber-50/30 to-white"
         aria-hidden
       />
-      <div className="relative max-w-[90%] mx-auto px-6">
+      <div className="relative max-w-[90%] mx-auto px-4 sm:px-6">
         <ScrollReveal>
-          <div className="grid md:grid-cols-2 gap-14 md:gap-20 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-14 md:gap-20 items-center">
             {/* Image - modern card with accent */}
             <div
               className="relative opacity-0 animate-slide-in-left"
@@ -48,7 +48,7 @@ export default function AboutUs() {
                 <span className="inline-block text-[#FDCB00] font-semibold text-sm uppercase tracking-widest mb-3">
                   Who we are
                 </span>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
                   About Us
                 </h2>
                 <div
@@ -56,9 +56,9 @@ export default function AboutUs() {
                   aria-hidden
                 />
               </div>
-              <div className="space-y-6 border-l-2 border-[#FDCB00]/40 pl-6 md:pl-8">
+              <div className="space-y-4 sm:space-y-6 border-l-2 border-[#FDCB00]/40 pl-4 sm:pl-6 md:pl-8">
                 <p
-                  className="text-gray-700 text-lg leading-relaxed opacity-0 animate-fade-in-up"
+                  className="text-gray-700 text-base sm:text-lg leading-relaxed opacity-0 animate-fade-in-up"
                   style={{
                     animationDelay: "0.3s",
                     animationFillMode: "forwards",
@@ -71,7 +71,7 @@ export default function AboutUs() {
                   create more opportunity globally.
                 </p>
                 <p
-                  className="text-gray-700 text-lg leading-relaxed opacity-0 animate-fade-in-up"
+                  className="text-gray-700 text-base sm:text-lg leading-relaxed opacity-0 animate-fade-in-up"
                   style={{
                     animationDelay: "0.4s",
                     animationFillMode: "forwards",

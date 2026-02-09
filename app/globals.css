@@ -15,8 +15,24 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  @apply antialiased text-gray-800 bg-white;
+  @apply antialiased text-gray-800 bg-white overflow-x-hidden;
+  min-width: 0;
+}
+
+/* Hide scrollbar for carousel while keeping scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth touch scroll on iOS */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
 }
