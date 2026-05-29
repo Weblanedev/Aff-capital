@@ -14,20 +14,8 @@ export default function Thesis() {
     <section id="thesis" className="section thesis-section">
       <div className="container">
         {/* Header Section */}
-        <div
-          className="work-header"
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            marginBottom: "80px",
-            gap: "40px",
-          }}
-        >
-          <div
-            className="header-content"
-            style={{ flex: 1, maxWidth: "600px" }}
-          >
+        <div className="work-header flex flex-col items-center text-center gap-8 mb-12 lg:mb-20 lg:flex-row lg:items-start lg:justify-between lg:text-left lg:gap-10">
+          <div className="header-content w-full lg:flex-1 lg:max-w-[600px]">
             <div
               className="work-label"
               style={{
@@ -44,8 +32,8 @@ export default function Thesis() {
               Our Investment Thesis
             </div>
             <h2
+              className="text-2xl sm:text-3xl lg:text-[2.5rem]"
               style={{
-                fontSize: "2.5rem",
                 fontWeight: 700,
                 color: "var(--text)",
                 margin: "0 0 20px 0",
@@ -53,17 +41,16 @@ export default function Thesis() {
                 background: "none",
               }}
             >
-              Building Africa's digital infrastructure, one investment at a
+              Building Africa&apos;s digital infrastructure, one investment at a
               time.
             </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <div className="flex flex-col gap-4 w-full">
               {AFF_ABOUT_PARAGRAPHS.map((paragraph) => (
                 <p
                   key={paragraph.slice(0, 32)}
-                  className="work-description"
+                  className="work-description text-base sm:text-lg w-full"
                   style={{
                     color: "var(--muted)",
-                    fontSize: "1.1rem",
                     lineHeight: 1.6,
                     margin: 0,
                   }}
@@ -71,24 +58,10 @@ export default function Thesis() {
                   {paragraph}
                 </p>
               ))}
-              <p
-                className="work-description"
-                style={{
-                  color: "var(--muted)",
-                  fontSize: "1.1rem",
-                  lineHeight: 1.6,
-                  margin: 0,
-                }}
-              >
-                We back foundational software and infrastructure for
-                Africa&apos;s digital economy, investing early with high
-                conviction and supporting operators with distribution, talent
-                and regulatory navigation.
-              </p>
             </div>
           </div>
           <div
-            className="header-icon"
+            className="header-icon hidden lg:flex shrink-0"
             style={{
               fontSize: "3rem",
               filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))",
