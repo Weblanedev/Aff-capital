@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { HERO_CAROUSEL, AFF_ICONS } from "../lib/assets";
-import { AFF_BRAND_NAME_LINES, AFF_HERO_INTRO_LINES, AFF_TAGLINE_DISPLAY } from "../lib/aff-copy";
+import { AFF_BRAND_NAME_LINES, AFF_HERO_INTRO, AFF_TAGLINE_DISPLAY } from "../lib/aff-copy";
 import Carousel from "./Carousel";
 import AffIcon from "./AffIcon";
 
@@ -54,6 +54,24 @@ export default function Hero(): JSX.Element {
       icon: AFF_ICONS.renewableEnergy,
     },
   ];
+
+  const marqueeSectors = [...sectors, ...sectors];
+
+  function FocusSectorCard({ sector }: { sector: (typeof sectors)[0] }) {
+    return (
+      <div className="hero-focus-marquee-card">
+        <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[var(--bg)]/80 p-1.5 shrink-0">
+          <AffIcon src={sector.icon} alt={sector.name} size={24} />
+        </div>
+        <div className="min-w-0">
+          <h4 className="text-sm font-semibold text-white mb-0.5 truncate">
+            {sector.name}
+          </h4>
+          <p className="text-xs text-white/70 truncate">{sector.description}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <header className="relative min-h-screen w-full max-w-[100vw] overflow-x-clip">
@@ -108,19 +126,16 @@ export default function Hero(): JSX.Element {
               {AFF_TAGLINE_DISPLAY}
             </p>
             <p
-              className={`muted text-base md:text-lg lg:text-xl max-w-2xl lg:max-w-3xl mb-8 md:mb-10 leading-relaxed transition-all duration-600 ease-out ${
+              className={`muted text-base md:text-lg lg:text-xl max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl mb-8 md:mb-10 leading-relaxed transition-all duration-600 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-5"
               }`}
               style={{ transitionDelay: "0.3s" }}
             >
-              {AFF_HERO_INTRO_LINES.map((line) => (
-                <span key={line} className="block">
-                  {line}
-                </span>
-              ))}
+              {AFF_HERO_INTRO}
             </p>
+
             <div
               className={`flex gap-4 mb-6 md:mb-8 flex-wrap transition-all duration-600 ease-out ${
                 isVisible
@@ -158,6 +173,46 @@ export default function Hero(): JSX.Element {
               </div>
               <div className="pill text-xs md:text-sm px-3 md:px-4 py-2">
                 Operator support
+              </div>
+            </div>
+
+            {/* Mobile: horizontal focus areas marquee */}
+            <div
+              className={`lg:hidden mt-8 -mx-4 sm:-mx-6 transition-all duration-600 ease-out ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-5"
+              }`}
+              style={{ transitionDelay: "0.55s" }}
+            >
+              <div className="flex items-center justify-between mb-3 px-4 sm:px-6">
+                <div>
+                  <h3 className="text-lg font-bold text-white">
+                    Our Focus Areas
+                  </h3>
+                  <p className="text-sm text-white/70">
+                    Building Africa&apos;s digital economy
+                  </p>
+                </div>
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, var(--accent), var(--accent-2))",
+                  }}
+                >
+                  4
+                </div>
+              </div>
+              <div className="hero-focus-marquee px-4 sm:px-6">
+                <div className="hero-focus-marquee-track">
+                  {marqueeSectors.map((sector, index) => (
+                    <FocusSectorCard
+                      key={`${sector.name}-${index}`}
+                      sector={sector}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>

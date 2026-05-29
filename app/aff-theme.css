@@ -2407,3 +2407,59 @@ h3 {
 .hero-headline .mb-2 {
   margin-bottom: 0.5rem !important;
 }
+
+/* Hero mobile focus areas marquee */
+@keyframes heroFocusMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.hero-focus-marquee {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 5%,
+    #000 95%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 5%,
+    #000 95%,
+    transparent 100%
+  );
+}
+
+.hero-focus-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 0.75rem;
+  animation: heroFocusMarquee 18s linear infinite;
+  will-change: transform;
+}
+
+.hero-focus-marquee-card {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  width: 15.5rem;
+  padding: 0.875rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-focus-marquee-track {
+    animation: none;
+  }
+}
