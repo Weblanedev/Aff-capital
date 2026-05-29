@@ -1,6 +1,13 @@
 "use client";
 
 import Reveal from "../../components/Reveal";
+import MobileSwipeCarousel from "../../components/ui/MobileSwipeCarousel";
+import {
+  SectorApproachCard,
+  SectorFocusCard,
+  sectorApproaches,
+  sectorFocusAreas,
+} from "../../components/sectors/SectorsPageCards";
 const digitalAfriImage = "/assets/digital-afri.png";
 
 export default function SectorsPage(): JSX.Element {
@@ -42,158 +49,22 @@ export default function SectorsPage(): JSX.Element {
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 mt-12 sm:mt-16 lg:mt-20">
-            <Reveal delayMs={240}>
-              <div className="bg-[#1e293b] dark:bg-[#1e293b] border border-slate-600 dark:border-slate-600 rounded-3xl p-6 sm:p-8 lg:p-10 transition-all duration-400 hover:-translate-y-3 hover:scale-105 hover:shadow-2xl hover:border-blue-500 dark:hover:border-blue-500 cursor-pointer group relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="flex items-center gap-4 sm:gap-6 mb-6">
-                  <div className="text-4xl sm:text-5xl lg:text-6xl filter drop-shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    💳
-                  </div>
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white dark:text-white transition-colors duration-300 group-hover:text-blue-600">
-                    Fintech & Payments
-                  </h3>
-                </div>
-                <p className="text-gray-300 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-                  Revolutionizing financial services through innovative payment
-                  solutions, digital lending platforms, and seamless B2B
-                  infrastructure.
-                </p>
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-200 dark:text-gray-200 text-sm sm:text-base">
-                      Digital Payments
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-200 dark:text-gray-200 text-sm sm:text-base">
-                      Cross-border Transactions
-                    </span>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-900/30 to-emerald-900/30 dark:from-blue-900/30 dark:to-emerald-900/30 border border-blue-700 dark:border-blue-700 rounded-full text-blue-300 dark:text-blue-300 text-sm font-semibold uppercase tracking-wide transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                    1.4B Population
-                  </span>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delayMs={360}>
-              <div className="bg-[#1e293b] dark:bg-[#1e293b] border border-slate-600 dark:border-slate-600 rounded-3xl p-6 sm:p-8 lg:p-10 transition-all duration-400 hover:-translate-y-3 hover:scale-105 hover:shadow-2xl hover:border-blue-500 dark:hover:border-blue-500 cursor-pointer group relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="flex items-center gap-4 sm:gap-6 mb-6">
-                  <div className="text-4xl sm:text-5xl lg:text-6xl filter drop-shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    🏦
-                  </div>
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white dark:text-white transition-colors duration-300 group-hover:text-blue-600">
-                    Banking & Infrastructure
-                  </h3>
-                </div>
-                <p className="text-gray-300 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-                  Building the foundation of modern banking with core systems,
-                  regulatory compliance, and identity verification solutions.
-                </p>
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-200 dark:text-gray-200 text-sm sm:text-base">
-                      KYC/AML Solutions
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-200 dark:text-gray-200 text-sm sm:text-base">
-                      Banking Infrastructure
-                    </span>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-900/30 to-emerald-900/30 dark:from-blue-900/30 dark:to-emerald-900/30 border border-blue-700 dark:border-blue-700 rounded-full text-blue-300 dark:text-blue-300 text-sm font-semibold uppercase tracking-wide transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                    54 Countries
-                  </span>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delayMs={480}>
-              <div className="bg-[#1e293b] dark:bg-[#1e293b] border border-slate-600 dark:border-slate-600 rounded-3xl p-6 sm:p-8 lg:p-10 transition-all duration-400 hover:-translate-y-3 hover:scale-105 hover:shadow-2xl hover:border-blue-500 dark:hover:border-blue-500 cursor-pointer group relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="flex items-center gap-4 sm:gap-6 mb-6">
-                  <div className="text-4xl sm:text-5xl lg:text-6xl filter drop-shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    🎓
-                  </div>
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white dark:text-white transition-colors duration-300 group-hover:text-blue-600">
-                    Education & Talent
-                  </h3>
-                </div>
-                <p className="text-gray-300 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-                  Empowering the next generation through innovative learning
-                  platforms, talent development tools, and educational financing
-                  solutions.
-                </p>
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-200 dark:text-gray-200 text-sm sm:text-base">
-                      Talent Development
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-200 dark:text-gray-200 text-sm sm:text-base">
-                      Educational Finance
-                    </span>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-900/30 to-emerald-900/30 dark:from-blue-900/30 dark:to-emerald-900/30 border border-blue-700 dark:border-blue-700 rounded-full text-blue-300 dark:text-blue-300 text-sm font-semibold uppercase tracking-wide transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                    80% Mobile Penetration
-                  </span>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delayMs={600}>
-              <div className="bg-[#1e293b] dark:bg-[#1e293b] border border-slate-600 dark:border-slate-600 rounded-3xl p-6 sm:p-8 lg:p-10 transition-all duration-400 hover:-translate-y-3 hover:scale-105 hover:shadow-2xl hover:border-blue-500 dark:hover:border-blue-500 cursor-pointer group relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="flex items-center gap-4 sm:gap-6 mb-6">
-                  <div className="text-4xl sm:text-5xl lg:text-6xl filter drop-shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    ⚡
-                  </div>
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white dark:text-white transition-colors duration-300 group-hover:text-blue-600">
-                    Energy & Infrastructure
-                  </h3>
-                </div>
-                <p className="text-gray-300 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-                  Transforming energy infrastructure with distributed
-                  generation, advanced storage solutions, and intelligent grid
-                  management.
-                </p>
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-200 dark:text-gray-200 text-sm sm:text-base">
-                      Grid Software
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-200 dark:text-gray-200 text-sm sm:text-base">
-                      Smart Infrastructure
-                    </span>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-900/30 to-emerald-900/30 dark:from-blue-900/30 dark:to-emerald-900/30 border border-blue-700 dark:border-blue-700 rounded-full text-blue-300 dark:text-blue-300 text-sm font-semibold uppercase tracking-wide transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                    60% Youth Population
-                  </span>
-                </div>
-              </div>
-            </Reveal>
+          <div className="hidden lg:grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 mt-12 sm:mt-16 lg:mt-20">
+            {sectorFocusAreas.map((area, index) => (
+              <Reveal key={area.title} delayMs={240 + index * 120}>
+                <SectorFocusCard area={area} />
+              </Reveal>
+            ))}
           </div>
+
+          <MobileSwipeCarousel
+            className="lg:hidden mt-12 sm:mt-16"
+            aria-label="Core focus sectors"
+          >
+            {sectorFocusAreas.map((area) => (
+              <SectorFocusCard key={area.title} area={area} />
+            ))}
+          </MobileSwipeCarousel>
         </div>
       </section>
 
@@ -212,76 +83,22 @@ export default function SectorsPage(): JSX.Element {
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mt-12 sm:mt-16 lg:mt-20">
-            <Reveal delayMs={240}>
-              <div className="bg-[#1e293b] dark:bg-[#1e293b] border border-slate-600 dark:border-slate-600 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-500 dark:hover:border-blue-500 text-center group relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/10 to-[var(--accent-2)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative z-10">
-                  <h4 className="text-xl sm:text-2xl font-semibold text-white dark:text-white mb-4 relative z-10">
-                    Early Stage Focus
-                  </h4>
-                  <p className="text-gray-300 dark:text-gray-300 text-base leading-relaxed mb-6 relative z-10">
-                    We invest at seed and Series A stages when companies are
-                    defining their market position and building core teams.
-                  </p>
-                  <div className="flex gap-2 justify-center flex-wrap">
-                    <span className="px-3 py-2 bg-emerald-900/30 text-emerald-300 rounded-full text-sm font-medium border border-emerald-700 transition-all duration-300 hover:-translate-y-1">
-                      Seed
-                    </span>
-                    <span className="px-3 py-2 bg-emerald-900/30 text-emerald-300 rounded-full text-sm font-medium border border-emerald-700 transition-all duration-300 hover:-translate-y-1">
-                      Series A
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delayMs={480}>
-              <div className="bg-[#1e293b] dark:bg-[#1e293b] border border-slate-600 dark:border-slate-600 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-500 dark:hover:border-blue-500 text-center group relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/10 to-[var(--accent-2)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative z-10">
-                  <h4 className="text-xl sm:text-2xl font-semibold text-white dark:text-white mb-4 relative z-10">
-                    Long-term Partnership
-                  </h4>
-                  <p className="text-gray-300 dark:text-gray-300 text-base leading-relaxed mb-6 relative z-10">
-                    We build lasting relationships with founders, supporting
-                    them through multiple funding rounds and growth stages.
-                  </p>
-                  <div className="flex gap-2 justify-center flex-wrap">
-                    <span className="px-3 py-2 bg-emerald-900/30 text-emerald-300 rounded-full text-sm font-medium border border-emerald-700 transition-all duration-300 hover:-translate-y-1">
-                      Multi-Round
-                    </span>
-                    <span className="px-3 py-2 bg-emerald-900/30 text-emerald-300 rounded-full text-sm font-medium border border-emerald-700 transition-all duration-300 hover:-translate-y-1">
-                      Growth
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delayMs={600}>
-              <div className="bg-[#1e293b] dark:bg-[#1e293b] border border-slate-600 dark:border-slate-600 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-500 dark:hover:border-blue-500 text-center group relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/10 to-[var(--accent-2)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative z-10">
-                  <h4 className="text-xl sm:text-2xl font-semibold text-white dark:text-white mb-4 relative z-10">
-                    Ecosystem Building
-                  </h4>
-                  <p className="text-gray-300 dark:text-gray-300 text-base leading-relaxed mb-6 relative z-10">
-                    We actively connect our portfolio companies with each other,
-                    creating network effects that benefit all participants.
-                  </p>
-                  <div className="flex gap-2 justify-center flex-wrap">
-                    <span className="px-3 py-2 bg-emerald-900/30 text-emerald-300 rounded-full text-sm font-medium border border-emerald-700 transition-all duration-300 hover:-translate-y-1">
-                      Network
-                    </span>
-                    <span className="px-3 py-2 bg-emerald-900/30 text-emerald-300 rounded-full text-sm font-medium border border-emerald-700 transition-all duration-300 hover:-translate-y-1">
-                      Collaboration
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
+          <div className="hidden lg:grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mt-12 sm:mt-16 lg:mt-20">
+            {sectorApproaches.map((approach, index) => (
+              <Reveal key={approach.title} delayMs={240 + index * 120}>
+                <SectorApproachCard approach={approach} />
+              </Reveal>
+            ))}
           </div>
+
+          <MobileSwipeCarousel
+            className="lg:hidden mt-12 sm:mt-16"
+            aria-label="Sector investment approach"
+          >
+            {sectorApproaches.map((approach) => (
+              <SectorApproachCard key={approach.title} approach={approach} />
+            ))}
+          </MobileSwipeCarousel>
         </div>
       </section>
 

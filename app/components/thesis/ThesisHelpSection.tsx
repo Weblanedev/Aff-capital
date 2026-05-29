@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import Reveal from "../Reveal";
-import CarouselNavButton from "../ui/CarouselNavButton";
+import MobileSwipeCarousel from "../ui/MobileSwipeCarousel";
 import {
   helpCards,
   metricBadgeClassName,
@@ -29,20 +28,18 @@ function HelpCardContent({
   );
 }
 
+function HelpCard({ title, description, metric }: (typeof helpCards)[0]) {
+  return (
+    <div
+      className="border border-white/10 rounded-2xl p-6 sm:p-8 text-center"
+      style={{ background: "var(--card)" }}
+    >
+      <HelpCardContent title={title} description={description} metric={metric} />
+    </div>
+  );
+}
+
 export default function ThesisHelpSection() {
-  const [currentHelpIndex, setCurrentHelpIndex] = useState(0);
-  const [showHelpControls, setShowHelpControls] = useState(false);
-
-  const nextHelp = () => {
-    setCurrentHelpIndex((prev) => Math.min(prev + 1, helpCards.length - 1));
-  };
-
-  const prevHelp = () => {
-    setCurrentHelpIndex((prev) => Math.max(prev - 1, 0));
-  };
-
-  const card = helpCards[currentHelpIndex];
-
   return (
     <section
       className="py-12 sm:py-16 lg:py-20"
@@ -77,55 +74,14 @@ export default function ThesisHelpSection() {
           ))}
         </div>
 
-        <div className="lg:hidden relative z-10 mt-4">
-          <div className="relative">
-            <div
-              className="border border-white/10 rounded-2xl p-6 sm:p-8 text-center relative overflow-hidden"
-              style={{ background: "var(--card)" }}
-              onMouseEnter={() => setShowHelpControls(true)}
-              onMouseLeave={() => setShowHelpControls(false)}
-            >
-              <CarouselNavButton
-                direction="prev"
-                onClick={prevHelp}
-                disabled={currentHelpIndex === 0}
-                visible={showHelpControls}
-                aria-label="Previous help item"
-              />
-              <CarouselNavButton
-                direction="next"
-                onClick={nextHelp}
-                disabled={currentHelpIndex === helpCards.length - 1}
-                visible={showHelpControls}
-                aria-label="Next help item"
-              />
-              <button
-                type="button"
-                onClick={() => setShowHelpControls(!showHelpControls)}
-                className="absolute top-3 right-3 z-10 min-h-[32px] px-2 rounded-full bg-black/20 backdrop-blur-sm border border-white/20 text-xs text-white hover:bg-black/40"
-                aria-label="Toggle carousel controls"
-              >
-                {showHelpControls ? "Hide" : "Nav"}
-              </button>
-              <HelpCardContent {...card} />
-            </div>
-          </div>
-          <div className="flex justify-center gap-2 mt-6">
-            {helpCards.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => setCurrentHelpIndex(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentHelpIndex
-                    ? "bg-[var(--accent)] w-6"
-                    : "bg-gray-400 w-2 hover:bg-gray-300"
-                }`}
-                aria-label={`Go to help item ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+        <MobileSwipeCarousel
+          className="lg:hidden mt-4"
+          aria-label="How we help founders"
+        >
+          {helpCards.map((item) => (
+            <HelpCard key={item.title} {...item} />
+          ))}
+        </MobileSwipeCarousel>
       </div>
     </section>
   );

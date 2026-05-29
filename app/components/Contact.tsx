@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import "./Contact.css";
 import AffIcon from "./AffIcon";
@@ -137,23 +137,6 @@ export default function Contact(): JSX.Element {
     },
   ];
 
-  const activeStepIndex = steps.findIndex((step) => step.active);
-  const stepperRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const stepper = stepperRef.current;
-    if (!stepper) return;
-
-    const activeEl = stepper.querySelector(".stepper-step.active");
-    if (activeEl instanceof HTMLElement) {
-      activeEl.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
-      });
-    }
-  }, [activeStepIndex, progressPercentage]);
-
   return (
     <section id="contact" className="section">
       <div className="container">
@@ -183,7 +166,7 @@ export default function Contact(): JSX.Element {
               </span>
             </div>
 
-            <div className="stepper-progress" ref={stepperRef}>
+            <div className="stepper-progress">
               {steps.map((step, index) => (
                 <div
                   key={step.id}

@@ -1,13 +1,70 @@
 "use client";
 
-import { useState } from "react";
 import AffIcon from "./AffIcon";
-import CarouselNavButton from "./ui/CarouselNavButton";
+import MobileSwipeCarousel from "./ui/MobileSwipeCarousel";
 import { AFF_ICONS } from "../lib/assets";
 
+type Sector = {
+  name: string;
+  desc: string;
+  longDesc: string;
+  color: string;
+  icon: string;
+  features: string[];
+  investment: string;
+  market: string;
+  gradient: string;
+  bgGradient: string;
+};
+
+function SectorMobileCard({ sector }: { sector: Sector }) {
+  return (
+    <div
+      className="bg-[var(--sector-bg)] rounded-3xl p-6 border border-white/10 backdrop-blur-xl relative overflow-hidden"
+      style={{ "--sector-bg": sector.bgGradient } as React.CSSProperties}
+    >
+      <div className="text-4xl mb-4 filter drop-shadow-lg">
+        <AffIcon src={sector.icon} alt={sector.name} size={48} />
+      </div>
+      <h3 className="text-2xl font-bold text-[var(--text)] mb-3 leading-tight">
+        {sector.name}
+      </h3>
+      <p className="text-sm text-[var(--muted)] leading-relaxed mb-4">
+        {sector.longDesc}
+      </p>
+      <div className="flex flex-wrap gap-2 mb-4">
+        {sector.features.map((feature) => (
+          <span
+            key={feature}
+            className="bg-white/10 text-[var(--text)] px-3 py-1.5 rounded-2xl text-xs font-medium border border-white/20 backdrop-blur-sm"
+          >
+            {feature}
+          </span>
+        ))}
+      </div>
+      <div className="flex flex-col gap-3">
+        <div className="bg-white/5 rounded-xl p-3 border border-white/10">
+          <span className="block text-[var(--muted)] text-xs font-medium mb-1 uppercase tracking-wider">
+            Stage:
+          </span>
+          <span className="block text-[var(--text)] text-sm font-semibold">
+            {sector.investment}
+          </span>
+        </div>
+        <div className="bg-white/5 rounded-xl p-3 border border-white/10">
+          <span className="block text-[var(--muted)] text-xs font-medium mb-1 uppercase tracking-wider">
+            Market:
+          </span>
+          <span className="block text-[var(--text)] text-sm font-semibold">
+            {sector.market}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Sectors(): JSX.Element {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [showControls, setShowControls] = useState(false);
 
   const sectors = [
     {
@@ -87,18 +144,6 @@ export default function Sectors(): JSX.Element {
         "linear-gradient(135deg, rgba(106, 166, 255, 0.1), rgba(59, 130, 246, 0.05))",
     },
   ];
-
-  const nextCard = () => {
-    setCurrentIndex((prev) => (prev + 1) % sectors.length);
-  };
-
-  const prevCard = () => {
-    setCurrentIndex((prev) => (prev - 1 + sectors.length) % sectors.length);
-  };
-
-  const goToCard = (index: number) => {
-    setCurrentIndex(index);
-  };
 
   return (
     <section
@@ -339,106 +384,14 @@ export default function Sectors(): JSX.Element {
           </div>
         </div>
 
-        {/* Mobile Card Carousel - Hidden on Desktop */}
-        <div className="lg:hidden relative z-10">
-          {/* Current Card with Embedded Controls */}
-          <div className="relative">
-            <div
-              className="bg-[var(--sector-bg)] rounded-3xl p-6 border border-white/10 backdrop-blur-xl relative overflow-hidden transition-all duration-500 ease-in-out"
-              style={
-                {
-                  "--sector-bg": sectors[currentIndex].bgGradient,
-                } as React.CSSProperties
-              }
-            >
-              <CarouselNavButton
-                direction="prev"
-                onClick={prevCard}
-                disabled={currentIndex === 0}
-                visible={showControls}
-                aria-label="Previous sector"
-              />
-              <CarouselNavButton
-                direction="next"
-                onClick={nextCard}
-                disabled={currentIndex === sectors.length - 1}
-                visible={showControls}
-                aria-label="Next sector"
-              />
-              <button
-                type="button"
-                onClick={() => setShowControls(!showControls)}
-                className="absolute top-3 right-3 z-10 min-h-[32px] px-2 rounded-full bg-black/20 backdrop-blur-sm border border-white/20 text-xs text-white hover:bg-black/40"
-                aria-label="Toggle carousel controls"
-              >
-                {showControls ? "Hide" : "Nav"}
-              </button>
-
-              {/* Card Content */}
-              <div className="text-4xl mb-4 filter drop-shadow-lg">
-                <AffIcon
-                  src={sectors[currentIndex].icon}
-                  alt={sectors[currentIndex].name}
-                  size={48}
-                />
-              </div>
-              <h3 className="text-2xl font-bold text-[var(--text)] mb-3 leading-tight">
-                {sectors[currentIndex].name}
-              </h3>
-              <p className="text-sm text-[var(--muted)] leading-relaxed mb-4">
-                {sectors[currentIndex].longDesc}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {sectors[currentIndex].features.map((feature, idx) => (
-                  <span
-                    key={idx}
-                    className="bg-white/10 text-[var(--text)] px-3 py-1.5 rounded-2xl text-xs font-medium border border-white/20 backdrop-blur-sm"
-                  >
-                    {feature}
-                  </span>
-                ))}
-              </div>
-              <div className="flex flex-col gap-3">
-                <div className="bg-white/5 rounded-xl p-3 border border-white/10">
-                  <span className="block text-[var(--muted)] text-xs font-medium mb-1 uppercase tracking-wider">
-                    Stage:
-                  </span>
-                  <span className="block text-[var(--text)] text-sm font-semibold">
-                    {sectors[currentIndex].investment}
-                  </span>
-                </div>
-                <div className="bg-white/5 rounded-xl p-3 border border-white/10">
-                  <span className="block text-[var(--muted)] text-xs font-medium mb-1 uppercase tracking-wider">
-                    Market:
-                  </span>
-                  <span className="block text-[var(--text)] text-sm font-semibold">
-                    {sectors[currentIndex].market}
-                  </span>
-                </div>
-              </div>
-
-              {/* Progress Indicator - Bottom of card */}
-              <div className="flex justify-center gap-2 mt-4">
-                {sectors.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => goToCard(idx)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      idx === currentIndex
-                        ? "bg-white scale-125"
-                        : "bg-white/30 hover:bg-white/50"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Card Counter - Below card */}
-          <div className="text-center mt-4 text-sm text-[var(--muted)]">
-            {currentIndex + 1} of {sectors.length}
-          </div>
-        </div>
+        <MobileSwipeCarousel
+          className="lg:hidden relative z-10"
+          aria-label="Strategic sectors"
+        >
+          {sectors.map((sector) => (
+            <SectorMobileCard key={sector.name} sector={sector} />
+          ))}
+        </MobileSwipeCarousel>
       </div>
     </section>
   );

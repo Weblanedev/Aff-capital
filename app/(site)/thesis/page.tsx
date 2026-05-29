@@ -1,15 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import Reveal from "../../components/Reveal";
 import ThesisHelpSection from "../../components/thesis/ThesisHelpSection";
+import MobileSwipeCarousel from "../../components/ui/MobileSwipeCarousel";
+import {
+  ThesisPhilosophyCard,
+  ThesisStrategyCard,
+} from "../../components/thesis/ThesisPageCards";
 
 export default function ThesisPage(): JSX.Element {
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const [currentStrategyIndex, setCurrentStrategyIndex] = useState(0);
-  const [showControls, setShowControls] = useState(false);
-  const [showStrategyControls, setShowStrategyControls] = useState(false);
-
   const thesisCards = [
     {
       title: "Market Opportunity",
@@ -39,16 +38,6 @@ export default function ThesisPage(): JSX.Element {
     },
   ];
 
-  const nextCard = () => {
-    setCurrentCardIndex((prev) => (prev + 1) % thesisCards.length);
-  };
-
-  const prevCard = () => {
-    setCurrentCardIndex(
-      (prev) => (prev - 1 + thesisCards.length) % thesisCards.length
-    );
-  };
-
   const strategyCards = [
     {
       title: "Early Stage Focus",
@@ -69,16 +58,6 @@ export default function ThesisPage(): JSX.Element {
       tags: ["Scale Ready"],
     },
   ];
-
-  const nextStrategy = () => {
-    setCurrentStrategyIndex((prev) => (prev + 1) % strategyCards.length);
-  };
-
-  const prevStrategy = () => {
-    setCurrentStrategyIndex(
-      (prev) => (prev - 1 + strategyCards.length) % strategyCards.length
-    );
-  };
 
   return (
     <main
@@ -281,115 +260,14 @@ export default function ThesisPage(): JSX.Element {
             </Reveal>
           </div>
 
-          {/* Mobile Card Carousel - Hidden on Desktop */}
-          <div className="lg:hidden relative z-10 mt-8">
-            {/* Current Card with Embedded Controls */}
-            <div className="relative">
-              <div
-                className="border border-gray-200 dark:border-gray-600 rounded-3xl p-6 sm:p-8 transition-all duration-400 hover:border-emerald-300/30 cursor-pointer relative overflow-hidden group"
-                style={{
-                  background: "var(--card)",
-                }}
-              >
-                {/* Carousel navigation */}
-                <button
-                  type="button"
-                  onClick={prevCard}
-                  aria-label="Previous"
-                  className={`absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white text-2xl font-light transition-all duration-300 ${
-                    showControls ? "opacity-100" : "opacity-0"
-                  } hover:bg-black/40 hover:border-white/40 disabled:opacity-30 disabled:cursor-not-allowed`}
-                  disabled={currentCardIndex === 0}
-                >
-                  ‹
-                </button>
-                <button
-                  type="button"
-                  onClick={nextCard}
-                  aria-label="Next"
-                  className={`absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white text-2xl font-light transition-all duration-300 ${
-                    showControls ? "opacity-100" : "opacity-0"
-                  } hover:bg-black/40 hover:border-white/40 disabled:opacity-30 disabled:cursor-not-allowed`}
-                  disabled={currentCardIndex === thesisCards.length - 1}
-                >
-                  ›
-                </button>
-
-                {/* Toggle Controls Button - Top right corner */}
-                <button
-                  type="button"
-                  onClick={() => setShowControls(!showControls)}
-                  className="absolute top-3 right-3 z-10 min-h-[32px] px-2 rounded-full bg-black/20 backdrop-blur-sm border border-white/20 text-xs text-white hover:bg-black/40"
-                  aria-label="Toggle carousel controls"
-                >
-                  Nav
-                </button>
-
-                {/* Card Content */}
-                <div>
-                  <h3 className="text-white font-bold text-2xl mb-4 leading-tight transition-colors duration-300 group-hover:text-emerald-500">
-                    {thesisCards[currentCardIndex].title}
-                  </h3>
-                  <p className="text-gray-200 text-lg leading-relaxed">
-                    {thesisCards[currentCardIndex].description}
-                  </p>
-                  {thesisCards[currentCardIndex].stats && (
-                    <div className="flex gap-3 mt-5 flex-wrap">
-                      {thesisCards[currentCardIndex].stats.map((stat, idx) => (
-                        <span
-                          key={idx}
-                          className="bg-gradient-to-br from-emerald-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg"
-                        >
-                          {stat}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                  {thesisCards[currentCardIndex].tags && (
-                    <div className="flex gap-2 mt-5 flex-wrap">
-                      {thesisCards[currentCardIndex].tags.map((tag, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-sm font-semibold rounded-xl shadow-lg"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                  {thesisCards[currentCardIndex].features && (
-                    <div className="flex gap-2 mt-5 flex-wrap">
-                      {thesisCards[currentCardIndex].features.map(
-                        (feature, idx) => (
-                          <span
-                            key={idx}
-                            className="px-3 py-1 bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-sm font-semibold rounded-xl shadow-lg"
-                          >
-                            {feature}
-                          </span>
-                        )
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Card Indicators */}
-            <div className="flex justify-center gap-2 mt-6">
-              {thesisCards.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentCardIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentCardIndex
-                      ? "bg-emerald-500 w-6"
-                      : "bg-gray-400 hover:bg-gray-300"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
+          <MobileSwipeCarousel
+            className="lg:hidden mt-8"
+            aria-label="Investment philosophy"
+          >
+            {thesisCards.map((card) => (
+              <ThesisPhilosophyCard key={card.title} card={card} />
+            ))}
+          </MobileSwipeCarousel>
         </div>
       </section>
 
@@ -496,89 +374,14 @@ export default function ThesisPage(): JSX.Element {
             </Reveal>
           </div>
 
-          {/* Mobile Strategy Carousel - Hidden on Desktop */}
-          <div className="lg:hidden relative z-10 mt-8">
-            {/* Current Card with Embedded Controls */}
-            <div className="relative">
-              <div
-                className="border border-gray-200 dark:border-gray-600 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:border-emerald-300/30 cursor-pointer relative overflow-hidden group"
-                style={{
-                  background: "var(--card)",
-                }}
-              >
-                {/* Carousel navigation */}
-                <button
-                  type="button"
-                  onClick={prevStrategy}
-                  aria-label="Previous"
-                  className={`absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white text-2xl font-light transition-all duration-300 ${
-                    showStrategyControls ? "opacity-100" : "opacity-0"
-                  } hover:bg-black/40 hover:border-white/40 disabled:opacity-30 disabled:cursor-not-allowed`}
-                  disabled={currentStrategyIndex === 0}
-                >
-                  ‹
-                </button>
-                <button
-                  type="button"
-                  onClick={nextStrategy}
-                  aria-label="Next"
-                  className={`absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white text-2xl font-light transition-all duration-300 ${
-                    showStrategyControls ? "opacity-100" : "opacity-0"
-                  } hover:bg-black/40 hover:border-white/40 disabled:opacity-30 disabled:cursor-not-allowed`}
-                  disabled={currentStrategyIndex === strategyCards.length - 1}
-                >
-                  ›
-                </button>
-
-                {/* Toggle Controls Button - Top right corner */}
-                <button
-                  type="button"
-                  onClick={() => setShowStrategyControls(!showStrategyControls)}
-                  className="absolute top-3 right-3 z-10 min-h-[32px] px-2 rounded-full bg-black/20 backdrop-blur-sm border border-white/20 text-xs text-white hover:bg-black/40"
-                  aria-label="Toggle carousel controls"
-                >
-                  Nav
-                </button>
-
-                {/* Card Content */}
-                <div className="relative z-10">
-                  <h4 className="text-xl font-semibold text-white mb-4">
-                    {strategyCards[currentStrategyIndex].title}
-                  </h4>
-                  <p className="text-gray-200 mb-4">
-                    {strategyCards[currentStrategyIndex].description}
-                  </p>
-                  <div className="flex gap-2 mt-4">
-                    {strategyCards[currentStrategyIndex].tags.map(
-                      (tag, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-sm font-semibold rounded-xl shadow-lg"
-                        >
-                          {tag}
-                        </span>
-                      )
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Card Indicators */}
-            <div className="flex justify-center gap-2 mt-6">
-              {strategyCards.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentStrategyIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentStrategyIndex
-                      ? "bg-emerald-500 w-6"
-                      : "bg-gray-400 hover:bg-gray-300"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
+          <MobileSwipeCarousel
+            className="lg:hidden mt-8"
+            aria-label="Investment strategy"
+          >
+            {strategyCards.map((card) => (
+              <ThesisStrategyCard key={card.title} card={card} />
+            ))}
+          </MobileSwipeCarousel>
         </div>
       </section>
 

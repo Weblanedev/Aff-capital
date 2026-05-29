@@ -1,6 +1,11 @@
 "use client";
 
 import Reveal from "../../components/Reveal";
+import MobileSwipeCarousel from "../../components/ui/MobileSwipeCarousel";
+import {
+  CompanyStageCard,
+  companyStages,
+} from "../../components/portfolio/CompanyStageCard";
 
 export default function PortfolioPage(): JSX.Element {
   return (
@@ -179,69 +184,22 @@ export default function PortfolioPage(): JSX.Element {
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mt-12 sm:mt-16 lg:mt-20">
-            <Reveal delayMs={240}>
-              <div className="bg-[#1e293b] dark:bg-[#1e293b] border border-slate-600 dark:border-slate-600 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-emerald-500 dark:hover:border-emerald-500 text-center group relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative z-10">
-                  <h4 className="text-xl sm:text-2xl font-semibold text-white dark:text-white mb-4 relative z-10">
-                    Seed Stage
-                  </h4>
-                  <p className="text-gray-300 dark:text-gray-300 text-base leading-relaxed mb-6 relative z-10">
-                    Early-stage companies with innovative ideas and strong
-                    founding teams. We provide initial support and strategic
-                    guidance to help validate concepts.
-                  </p>
-                  <div className="flex justify-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-900/30 text-emerald-300 rounded-full text-sm font-medium border border-emerald-700 transition-all duration-300 hover:-translate-y-1">
-                      <span>Product Validation</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delayMs={360}>
-              <div className="bg-[#1e293b] dark:bg-[#1e293b] border border-slate-600 dark:border-slate-600 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-500 dark:hover:border-blue-500 text-center group relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/10 to-[var(--accent-2)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative z-10">
-                  <h4 className="text-xl sm:text-2xl font-semibold text-white dark:text-white mb-4 relative z-10">
-                    Series A
-                  </h4>
-                  <p className="text-gray-300 dark:text-gray-300 text-base leading-relaxed mb-6 relative z-10">
-                    Companies with proven product-market fit and early traction.
-                    We help scale operations and expand into new markets.
-                  </p>
-                  <div className="flex justify-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-900/30 text-blue-300 rounded-full text-sm font-medium border border-blue-700 transition-all duration-300 hover:-translate-y-1">
-                      <span>Market Expansion</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delayMs={480}>
-              <div className="bg-[#1e293b] dark:bg-[#1e293b] border border-slate-600 dark:border-slate-600 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-emerald-500 dark:hover:border-emerald-500 text-center group relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative z-10">
-                  <h4 className="text-xl sm:text-2xl font-semibold text-white dark:text-white mb-4 relative z-10">
-                    Series B+
-                  </h4>
-                  <p className="text-gray-300 dark:text-gray-300 text-base leading-relaxed mb-6 relative z-10">
-                    Established companies with strong growth and market
-                    leadership. We support expansion and help prepare for
-                    potential exits.
-                  </p>
-                  <div className="flex justify-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-900/30 text-emerald-300 rounded-full text-sm font-medium border border-emerald-700 transition-all duration-300 hover:-translate-y-1">
-                      <span>Scale & Exit</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
+          <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mt-12 sm:mt-16 lg:mt-20">
+            {companyStages.map((stage, index) => (
+              <Reveal key={stage.title} delayMs={240 + index * 120}>
+                <CompanyStageCard stage={stage} interactive />
+              </Reveal>
+            ))}
           </div>
+
+          <MobileSwipeCarousel
+            className="lg:hidden mt-12 sm:mt-16"
+            aria-label="Company investment stages"
+          >
+            {companyStages.map((stage) => (
+              <CompanyStageCard key={stage.title} stage={stage} />
+            ))}
+          </MobileSwipeCarousel>
         </div>
       </section>
 

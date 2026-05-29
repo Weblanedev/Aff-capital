@@ -2,6 +2,7 @@
 
 import Reveal from "./Reveal";
 import AffIcon from "./AffIcon";
+import MobileSwipeCarousel from "./ui/MobileSwipeCarousel";
 import { AFF_ICONS } from "../lib/assets";
 import { AFF_CORE_SERVICES_INTRO } from "../lib/aff-copy";
 
@@ -59,7 +60,7 @@ export default function CoreServices() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="hidden lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <Reveal key={service.title} delayMs={180 + index * 80}>
               <div className="bg-[var(--card)] border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center min-h-[260px] transition-all duration-300 hover:border-[var(--accent)]/30 hover:-translate-y-1 hover:shadow-xl">
@@ -76,6 +77,28 @@ export default function CoreServices() {
             </Reveal>
           ))}
         </div>
+
+        <MobileSwipeCarousel
+          className="lg:hidden"
+          aria-label="Core services"
+        >
+          {services.map((service) => (
+            <div
+              key={service.title}
+              className="bg-[var(--card)] border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center min-h-[260px]"
+            >
+              <div className="mb-5">
+                <AffIcon src={service.icon} alt={service.title} size={56} />
+              </div>
+              <h3 className="font-bold text-[var(--text)] text-xl mb-3">
+                {service.title}
+              </h3>
+              <p className="text-[var(--muted)] text-sm sm:text-base leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+          ))}
+        </MobileSwipeCarousel>
       </div>
     </section>
   );
