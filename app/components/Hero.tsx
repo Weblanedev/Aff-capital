@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { HERO_CAROUSEL, AFF_ICONS } from "../lib/assets";
-import { AFF_BRAND_NAME_LINES, AFF_HERO_INTRO, AFF_TAGLINE_DISPLAY } from "../lib/aff-copy";
+import {
+  AFF_BRAND_NAME_LINES,
+  AFF_HERO_INTRO,
+  AFF_TAGLINE_DISPLAY,
+} from "../lib/aff-copy";
 import Carousel from "./Carousel";
 import AffIcon from "./AffIcon";
 
@@ -262,7 +266,9 @@ export default function Hero(): JSX.Element {
               <div
                 className="flex flex-col px-1 overflow-hidden pointer-events-none"
                 style={{
-                  animation: isVisible ? "autoScroll 15s ease-in-out infinite" : "none",
+                  animation: isVisible
+                    ? "autoScroll 15s ease-in-out infinite"
+                    : "none",
                 }}
               >
                 {sectors.map((sector) => (
@@ -271,11 +277,7 @@ export default function Hero(): JSX.Element {
                     className="flex items-center gap-4 p-5 rounded-2xl transition-all duration-300 ease-in-out hover:translate-x-2"
                   >
                     <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[var(--bg)]/80 p-1.5">
-                      <AffIcon
-                        src={sector.icon}
-                        alt={sector.name}
-                        size={28}
-                      />
+                      <AffIcon src={sector.icon} alt={sector.name} size={28} />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-1.5">

@@ -27,7 +27,7 @@ export const AFF_PHOTOS = {
   digitalAfri: "/assets/digital-afri.png",
   hero1: "/assets/hero1.jpg",
   hero2: "/assets/hero2.jpg",
-  hero3: "/assets/hero3.jpg",
+  hero3: "/assets/her03a.jpg",
   hero4: "/assets/hero4.jpg",
   hero5: "/assets/hero5.jpg",
 } as const;
