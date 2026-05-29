@@ -31,12 +31,12 @@ export const AFF_PHOTOS = {
 export const HERO_CAROUSEL = [
   AFF_PHOTOS.adeolu,
   AFF_PHOTOS.markusVenture,
-  AFF_PHOTOS.hector,
+  AFF_PHOTOS.andreas,
   AFF_PHOTOS.stephen,
   AFF_PHOTOS.towfiqu,
   AFF_PHOTOS.austin,
   AFF_PHOTOS.jason,
-  AFF_PHOTOS.andreas,
+  AFF_PHOTOS.markus,
 ] as const;
 
 export type AffIconKey = keyof typeof AFF_ICONS;

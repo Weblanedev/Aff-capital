@@ -12,7 +12,7 @@ export default function SiteLayout({
   return (
     <ToastProvider>
       <Navbar />
-      <main className="w-full min-w-0 overflow-x-hidden">
+      <main className="w-full min-w-0">
         <PageContent delayMs={DEFAULT_PAGE_SKELETON_DELAY_MS}>
           {children}
         </PageContent>

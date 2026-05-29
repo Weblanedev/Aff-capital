@@ -56,7 +56,7 @@ export default function Hero(): JSX.Element {
   ];
 
   return (
-    <header className="relative min-h-screen w-screen -ml-[calc(50vw-50%)] -mr-[calc(50vw-50%)]">
+    <header className="relative min-h-screen w-full max-w-[100vw] overflow-x-clip">
       {/* Full Background Carousel */}
       <div className="absolute inset-0 z-0">
         <Carousel
@@ -197,10 +197,9 @@ export default function Hero(): JSX.Element {
 
               {/* Sectors Grid */}
               <div
-                className="flex flex-col px-1 overflow-hidden"
+                className="flex flex-col px-1 overflow-hidden pointer-events-none"
                 style={{
-                  height: "calc(100% - -20px)",
-                  animation: "autoScroll 15s ease-in-out infinite",
+                  animation: isVisible ? "autoScroll 15s ease-in-out infinite" : "none",
                 }}
               >
                 {sectors.map((sector) => (
