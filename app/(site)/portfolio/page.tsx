@@ -156,7 +156,7 @@ export default function PortfolioPage(): JSX.Element {
                     </p>
                     <a
                       href="/contact"
-                      className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-emerald-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                      className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-emerald-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg aff-cta"
                     >
                       Learn more
                     </a>
@@ -222,13 +222,13 @@ export default function PortfolioPage(): JSX.Element {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] text-white font-semibold rounded-full hover:from-emerald-600 hover:to-blue-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] text-white font-semibold rounded-full hover:from-emerald-600 hover:to-blue-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg aff-cta"
                 >
                   Pitch Your Company
                 </a>
                 <a
                   href="/thesis"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-[#1e293b] dark:bg-[#1e293b] text-gray-200 dark:text-gray-200 font-semibold rounded-full border-2 border-slate-600 dark:border-slate-600 hover:bg-slate-600 dark:hover:bg-slate-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-[#1e293b] dark:bg-[#1e293b] text-gray-200 dark:text-gray-200 font-semibold rounded-full border-2 border-slate-600 dark:border-slate-600 hover:bg-slate-600 dark:hover:bg-slate-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg aff-cta-secondary"
                 >
                   Learn Our Thesis
                 </a>

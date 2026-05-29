@@ -239,7 +239,7 @@ export default function PitchIntro() {
               <div className="mt-8">
                 <a
                   href="/contact"
-                  className="inline-block bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  className="inline-block bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl aff-cta"
                 >
                   Pitch Your Company
                 </a>

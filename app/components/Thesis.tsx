@@ -130,6 +130,7 @@ export default function Thesis() {
 
             <a
               href="/thesis"
+              className="aff-cta"
               style={{
                 display: "inline-flex",
                 alignItems: "center",

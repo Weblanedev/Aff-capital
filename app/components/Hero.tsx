@@ -165,13 +165,13 @@ export default function Hero(): JSX.Element {
               }`}
               style={{ transitionDelay: "0.5s" }}
             >
-              <div className="pill text-xs md:text-sm px-3 md:px-4 py-2">
+              <div className="pill hero-breathe-pill text-xs md:text-sm px-3 md:px-4 py-2">
                 Early-stage support
               </div>
-              <div className="pill text-xs md:text-sm px-3 md:px-4 py-2">
+              <div className="pill hero-breathe-pill text-xs md:text-sm px-3 md:px-4 py-2">
                 Lead or follow
               </div>
-              <div className="pill text-xs md:text-sm px-3 md:px-4 py-2">
+              <div className="pill hero-breathe-pill text-xs md:text-sm px-3 md:px-4 py-2">
                 Operator support
               </div>
             </div>

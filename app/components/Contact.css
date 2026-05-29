@@ -706,6 +706,7 @@ select.form-input {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  animation: btnBreathePrimary 2.6s ease-in-out infinite;
 }
 
 .submit-btn::before {
@@ -731,6 +732,7 @@ select.form-input {
 .submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 20px 40px rgba(43, 212, 167, 0.3);
+  animation-play-state: paused;
 }
 
 .submit-btn:active {
@@ -741,6 +743,7 @@ select.form-input {
   opacity: 0.7;
   cursor: not-allowed;
   transform: none;
+  animation: none;
 }
 
 .btn-icon {

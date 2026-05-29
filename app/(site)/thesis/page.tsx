@@ -530,13 +530,13 @@ export default function ThesisPage(): JSX.Element {
               <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1 text-base sm:text-lg"
+                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1 text-base sm:text-lg aff-cta"
                 >
                   Get in Touch
                 </a>
                 <a
                   href="/portfolio"
-                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border border-gray-300 dark:border-gray-600 text-white font-semibold rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 text-base sm:text-lg"
+                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border border-gray-300 dark:border-gray-600 text-white font-semibold rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 text-base sm:text-lg aff-cta-secondary"
                   style={{
                     background: "var(--card)",
                   }}

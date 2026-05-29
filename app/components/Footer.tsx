@@ -50,7 +50,7 @@ export default function Footer() {
             </p>
             <a
               href="mailto:dickson@aff.capital"
-              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] text-[var(--bg)] text-sm font-semibold rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] text-[var(--bg)] text-sm font-semibold rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg aff-cta"
             >
               Email Us
             </a>
@@ -103,7 +103,7 @@ export default function Footer() {
                 href="mailto:dickson@aff.capital?subject=Ready%20to%20Pitch%20Ideas%20-%20Seeking%20Investment%20Support"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 lg:px-10 lg:py-5 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] text-[var(--bg)] text-base lg:text-lg font-semibold rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border-2 border-transparent hover:border-[var(--accent)]/30 w-full max-w-md mx-auto"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 lg:px-10 lg:py-5 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] text-[var(--bg)] text-base lg:text-lg font-semibold rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border-2 border-transparent hover:border-[var(--accent)]/30 w-full max-w-md mx-auto aff-cta"
               >
                 Start Conversation
               </a>

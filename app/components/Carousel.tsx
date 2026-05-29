@@ -65,7 +65,7 @@ export default function Carousel({
           <button
             onClick={goToPrev}
             aria-label="Previous slide"
-            className="btn"
+            className="carousel-btn"
             style={{
               position: "absolute",
               left: 16,
@@ -98,7 +98,7 @@ export default function Carousel({
           <button
             onClick={goToNext}
             aria-label="Next slide"
-            className="btn"
+            className="carousel-btn"
             style={{
               position: "absolute",
               right: 16,
@@ -150,7 +150,7 @@ export default function Carousel({
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Go to slide ${i + 1}`}
-              className="btn"
+              className="carousel-btn"
               style={{
                 width: 12,
                 height: 12,
