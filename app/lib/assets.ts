@@ -25,18 +25,23 @@ export const AFF_PHOTOS = {
   education: "/assets/education.jpg",
   energy: "/assets/energy.jpg",
   digitalAfri: "/assets/digital-afri.png",
+  hero1: "/assets/hero1.jpg",
+  hero2: "/assets/hero2.jpg",
+  hero3: "/assets/hero3.jpg",
+  hero4: "/assets/hero4.jpg",
+  hero5: "/assets/hero5.jpg",
 } as const;
 
 /** Home hero carousel */
 export const HERO_CAROUSEL = [
-  AFF_PHOTOS.adeolu,
-  AFF_PHOTOS.markusVenture,
-  AFF_PHOTOS.andreas,
-  AFF_PHOTOS.stephen,
-  AFF_PHOTOS.towfiqu,
+  AFF_PHOTOS.hero1,
+  AFF_PHOTOS.hero2,
+  AFF_PHOTOS.hero3,
+  AFF_PHOTOS.hero4,
+  AFF_PHOTOS.hero5,
   AFF_PHOTOS.austin,
-  AFF_PHOTOS.jason,
-  AFF_PHOTOS.markus,
+  AFF_PHOTOS.stephen,
+  AFF_PHOTOS.markusVenture,
 ] as const;
 
 export type AffIconKey = keyof typeof AFF_ICONS;
