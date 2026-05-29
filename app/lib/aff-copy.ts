@@ -1,8 +1,19 @@
 /** Canonical marketing copy from https://aff.capital/ */
+export const AFF_BRAND_NAME_LINES = ["African", "Founders", "Fund"] as const;
+
+export const AFF_BRAND_NAME = AFF_BRAND_NAME_LINES.join(" ");
+
 export const AFF_TAGLINE = "We Invest In The Future";
 
-export const AFF_HERO_INTRO =
-  "AFF invests in african founders with business that need more funds, we work hand in hand in helping lift your business off the ground.";
+export const AFF_TAGLINE_DISPLAY = `"${AFF_TAGLINE}"`;
+
+export const AFF_HERO_INTRO_LINES = [
+  "AFF invests in african founders with business that need more",
+  "funds, we work hand in hand in helping lift your business",
+  "off the ground.",
+] as const;
+
+export const AFF_HERO_INTRO = AFF_HERO_INTRO_LINES.join(" ");
 
 export const AFF_FOOTER_BLURB =
   "AFF provides African innovators, with as much funds and resources as we can to push entrepreneurship in Africa.";

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { HERO_CAROUSEL, AFF_ICONS } from "../lib/assets";
-import { AFF_HERO_INTRO, AFF_TAGLINE } from "../lib/aff-copy";
+import { AFF_BRAND_NAME_LINES, AFF_HERO_INTRO_LINES, AFF_TAGLINE_DISPLAY } from "../lib/aff-copy";
 import Carousel from "./Carousel";
 import AffIcon from "./AffIcon";
 
@@ -81,28 +81,32 @@ export default function Hero(): JSX.Element {
 
       {/* Content Overlay */}
       <div className="container relative z-10 pb-20 sm:pb-24 md:pt-36 md:pb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 sm:gap-12 lg:gap-20 items-center pt-28 sm:pt-36 lg:pt-0">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 sm:gap-12 lg:gap-20 items-start pt-28 sm:pt-36 lg:pt-0">
           <div>
-            <div
-              className={`pill mb-6 transition-all duration-600 ease-out ${
+            <h1
+              className={`text-6xl sm:text-7xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.02] tracking-tight mb-4 md:mb-5 transition-all duration-600 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-5"
               }`}
               style={{ transitionDelay: "0.1s" }}
             >
-              African Founders Fund
-            </div>
-            <h1
-              className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6 md:mb-8 transition-all duration-600 ease-out ${
+              {AFF_BRAND_NAME_LINES.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </h1>
+            <p
+              className={`text-xl md:text-2xl lg:text-3xl font-semibold leading-snug mb-6 md:mb-8 text-[var(--accent)] transition-all duration-600 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-5"
               }`}
               style={{ transitionDelay: "0.2s" }}
             >
-              {AFF_TAGLINE}
-            </h1>
+              {AFF_TAGLINE_DISPLAY}
+            </p>
             <p
               className={`muted text-base md:text-lg lg:text-xl max-w-2xl lg:max-w-3xl mb-8 md:mb-10 leading-relaxed transition-all duration-600 ease-out ${
                 isVisible
@@ -111,7 +115,11 @@ export default function Hero(): JSX.Element {
               }`}
               style={{ transitionDelay: "0.3s" }}
             >
-              {AFF_HERO_INTRO}
+              {AFF_HERO_INTRO_LINES.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </p>
             <div
               className={`flex gap-4 mb-6 md:mb-8 flex-wrap transition-all duration-600 ease-out ${
@@ -155,9 +163,9 @@ export default function Hero(): JSX.Element {
           </div>
 
           {/* Focus Areas Card - Hidden on mobile, shown on larger screens */}
-          <div className="hidden lg:block relative h-full">
+          <div className="hidden lg:flex lg:justify-end lg:items-start">
             <div
-              className={`absolute bottom-0 right-0 rounded-3xl p-6 h-96 w-80 transition-all duration-600 ease-out cursor-pointer ${
+              className={`rounded-3xl p-6 h-96 w-80 transition-all duration-600 ease-out cursor-pointer ${
                 isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
               }`}
               style={{
